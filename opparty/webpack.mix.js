@@ -14,4 +14,8 @@ const mix = require('laravel-mix');
     .sass('resources/sass/app.scss', 'public/css');
  |
  */
-mix.js('resources/js/modules/events/main.js', 'public/js/modules/events/').vue();
+
+// Events modules
+mix.js('resources/js/modules/events/main.js', 'public/js/modules/events/')
+    .vue()
+    .sass('resources/sass/modules/events/main.scss', 'public/css/modules/events/');

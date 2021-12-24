@@ -1,5 +1,5 @@
 <template>
-<h1>WElcome to events page from vue</h1>
+<h1 class="test">WElcome to events page from vue</h1>
 </template>
 
 <script>
