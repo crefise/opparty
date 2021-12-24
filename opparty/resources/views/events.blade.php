@@ -9,4 +9,6 @@
 
 @push('vue-scripts')
     <script src="{{ asset('js/modules/events/main.js') }}" defer></script>
+    <link href="{{ asset('css/modules/events/main.css') }}" rel="stylesheet">
 @endpush
+
