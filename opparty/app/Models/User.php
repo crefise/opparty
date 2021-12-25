@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Rating;
 
 class User extends Authenticatable
 {
@@ -41,4 +42,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function rating () {
+        return $this->hasOne(Rating::class);
+    }
+
+    public  function  events() {
+        return $this->hasMany(user_event::class);
+    }
 }
