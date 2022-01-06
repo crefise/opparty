@@ -22,6 +22,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'api_token'
     ];
 
     /**
@@ -31,6 +32,7 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'password',
+        'api_token',
         'remember_token',
     ];
 
@@ -48,6 +50,6 @@ class User extends Authenticatable
     }
 
     public  function  events() {
-        return $this->hasMany(user_event::class);
+        return $this->belongsToMany(Event::class, 'user_events');
     }
 }

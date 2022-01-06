@@ -1,10 +1,13 @@
 <template>
     <div>
         <div>
-            <h1>Accessible events:</h1>
+            <h1>Subscribed events:</h1>
         </div>
         <div class="box">
-            <div v-for="event in eventList">
+            <div
+                v-for="event in myEventList"
+                class="block"
+            >
                 <event
                     :event="event"
                 />
@@ -19,24 +22,25 @@ import { mapGetters } from 'vuex';
 import Event from "./Event";
 
 export default {
+    name: "MyEvents",
+
     mixins: [
         api
     ],
-    name: "EventList",
 
     created() {
         this.loadListOfEvents();
     },
     methods: {
         loadListOfEvents () {
-            this.loadEvents();
+            this.loadMyEvents();
         }
     },
 
     computed: {
         ...mapGetters([
-            'eventList',
-            'eventsIsLoaded'
+            'myEventList',
+            'myEventsIsLoaded'
         ])
     },
 
@@ -45,3 +49,13 @@ export default {
     }
 }
 </script>
+
+<style>
+    .box {
+        display: flex;
+    }
+
+    .block {
+        display: block;
+    }
+</style>

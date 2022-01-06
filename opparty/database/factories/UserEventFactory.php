@@ -3,9 +3,8 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use App\Models\User;
 
-class RatingFactory extends Factory
+class UserEventFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -15,7 +14,7 @@ class RatingFactory extends Factory
     public function definition()
     {
         return [
-            'rating' => $this->faker->numberBetween(-1000, 1000),
+            //
         ];
     }
 }

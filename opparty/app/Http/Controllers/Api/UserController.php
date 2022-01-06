@@ -12,4 +12,8 @@ class UserController extends Controller
     public function index() {
         return User::with(['events'])->get();
     }
+
+    public function profile () {
+        return auth()->user();
+    }
 }

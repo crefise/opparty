@@ -6,7 +6,7 @@ return [
             'landing'         => 'Landing',
             'login'           => 'Sign in',
             'registration'    => 'Sign up',
-            'events'          => 'My Events'
+            'events'          => 'Events'
         ]
     ]
 ];

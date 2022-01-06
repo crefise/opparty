@@ -5,17 +5,33 @@ Vue.use(Vuex);
 
 const store = new Vuex.Store({
     state: {
-        MyEventList: [],
-        MyEventListLoaded: false,
+        myEventList: [],
+        eventList: [],
+        myEventListLoaded: false,
+        eventListLoaded: false,
     },
     mutations: {
-        LoadMyEventList (state, data) {
-            state.MyEventList = data;
+        loadMyEventList (state, data) {
+            state.myEventList = data;
+            state.myEventListLoaded = true;
+        },
+        loadEventList (state, data) {
+            state.eventList = data;
+            state.eventListLoaded = true;
         }
     },
     getters: {
-        MyEventList: state => {
-            return state.MyEventList;
+        eventList: state => {
+            return state.eventList;
+        },
+        myEventList: state => {
+            return state.myEventList;
+        },
+        myEventsIsLoaded: state => {
+            return state.MyEventListLoaded
+        },
+        eventsIsLoaded: state => {
+            return state.eventListLoaded
         }
     }
 });
