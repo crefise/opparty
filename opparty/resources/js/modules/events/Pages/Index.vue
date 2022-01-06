@@ -1,10 +1,24 @@
 <template>
-<h1>WElcome to events page from vue</h1>
+    <div>
+        <my-events></my-events>
+        <event-list></event-list>
+    </div>
 </template>
 
 <script>
+import EventList from "../Components/EventList";
+import MyEvents from "../Components/MyEvents";
+
 export default {
-    name: "Index"
+    name: "Index",
+
+    created () {
+    },
+
+    components: {
+        EventList,
+        MyEvents
+    }
 }
 </script>
 

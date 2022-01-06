@@ -15,13 +15,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('landing');
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/events', [App\Http\Controllers\EventController::class, 'index'])->name('events');
+Route::get('/events', [App\Http\Controllers\EventController::class, 'index'])->name('events')->middleware('auth');
 
 Auth::routes();
 
