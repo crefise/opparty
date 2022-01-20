@@ -45,11 +45,25 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    protected $appends = [
+        'signature'
+    ];
+
+    public function getSignatureAttribute() : string
+    {
+        return $this->name . ' ' . $this->email;
+    }
+
+
     public function rating () {
         return $this->hasOne(Rating::class);
     }
 
     public  function  events() {
         return $this->belongsToMany(Event::class, 'user_events');
+    }
+
+    public  function  apiTokenExist () : bool {
+        return $this->api_token ? true : false;
     }
 }
