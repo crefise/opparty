@@ -8,29 +8,19 @@ use Tests\TestCase;
 
 class RoutesTest extends TestCase
 {
+    public function route_list() {
+        return [
+            ['landing'],
+            ['login'],
+            ['register'],
+        ];
+    }
+
     /**
-     * A basic feature test example.
-     *
-     * @return void
+     * @dataProvider route_list
      */
-    public function test_landing_page()
-    {
-        $response = $this->get(route('landing'));
-
-        $response->assertStatus(200);
-    }
-
-    public function test_login_page()
-    {
-        $response = $this->get(route('login'));
-
-        $response->assertStatus(200);
-    }
-
-    public function test_registration_page()
-    {
-        $response = $this->get(route('register'));
-
+    public function test_routes($route) {
+        $response = $this->get(route($route));
         $response->assertStatus(200);
     }
 }
