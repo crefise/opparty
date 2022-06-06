@@ -18,6 +18,9 @@ const store = new Vuex.Store({
         loadEventList (state, data) {
             state.eventList = data;
             state.eventListLoaded = true;
+        },
+        joinToEvent (state, data) {
+            state.eventList.push(data);
         }
     },
     getters: {

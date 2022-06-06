@@ -17,6 +17,12 @@ export default {
             this.get(myEventRoute, {'api_token': this.getAuthApiToken()}).then(data => {
                 this.$store.commit('loadMyEventList', data);
             });
+        },
+
+        joinToEvent () {
+            this.post(joinToEventRoute, {'api_token': this.getAuthApiToken()}).then(data => {
+                this.$store.commit('joinToEvent', data);
+            })
         }
     }
 }

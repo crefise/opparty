@@ -2,7 +2,13 @@
     <div>
         <div>
             <h1>Subscribed events:</h1>
+            <button v-on:click="addEventAction()">Add event</button>
         </div>
+
+        <div v-if="showAddEventAction">
+            <add-event></add-event>
+        </div>
+
         <div class="box">
             <div
                 v-for="event in myEventList"
@@ -20,13 +26,21 @@
 import api from "../mixins/api";
 import { mapGetters } from 'vuex';
 import Event from "./Event";
+import AddEvent from "./AddEvent";
 
 export default {
+
     name: "MyEvents",
 
     mixins: [
         api
     ],
+
+    data () {
+        return {
+            showAddEventAction: false,
+        }
+    },
 
     created() {
         this.loadListOfEvents();
@@ -34,7 +48,10 @@ export default {
     methods: {
         loadListOfEvents () {
             this.loadMyEvents();
-        }
+        },
+        addEventAction () {
+            this.showAddEventAction = !this.showAddEventAction;
+        },
     },
 
     computed: {
@@ -45,7 +62,8 @@ export default {
     },
 
     components: {
-        Event
+        Event,
+        AddEvent
     }
 }
 </script>

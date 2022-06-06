@@ -45,6 +45,13 @@
                                 </li>
                             @endif
                         @endauth
+                        @auth
+                            @if (Route::has('network'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('network') }}">{{ trans('app.header.links.network') }}</a>
+                                </li>
+                            @endif
+                        @endauth
                     </ul>
 
                     <!-- Right Side Of Navbar -->

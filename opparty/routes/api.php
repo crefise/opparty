@@ -25,4 +25,4 @@ Route::get('/profile', [UserController::class, 'profile'])->middleware('auth:api
 
 
 Route::get('/events', [EventController::class, 'show']);
-Route::get('/my-events', [EventController::class, 'getMyEvents'])->middleware('auth:api');;
+Route::get('/my-events', [EventController::class, 'getMyEvents'])->middleware('auth:api');

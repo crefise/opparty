@@ -21,8 +21,6 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/events', [App\Http\Controllers\EventController::class, 'index'])->name('events')->middleware('auth');
+Route::get('/events', [App\Http\Controllers\EventController::class, 'index'])->name('events')->middleware(['auth', 'admin']);
 
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/network', [App\Http\Controllers\NetworkController::class, 'index'])->name('network')->middleware(['auth']);

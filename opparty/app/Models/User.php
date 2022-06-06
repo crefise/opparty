@@ -56,7 +56,7 @@ class User extends Authenticatable
 
 
     public function rating () {
-        return $this->hasOne(Rating::class);
+        return $this->hasOne(Rating::class)->first();
     }
 
     public  function  events() {
@@ -65,5 +65,9 @@ class User extends Authenticatable
 
     public  function  apiTokenExist () : bool {
         return $this->api_token ? true : false;
+    }
+
+    public  function  isAdmin() : bool {
+        return  true;
     }
 }
